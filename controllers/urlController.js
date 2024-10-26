@@ -52,3 +52,22 @@ exports.redirectToOrginalUrl = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
+
+exports.getAnalytics = async (req, res) => {
+  const { shortUrl } = req.params;
+  try {
+    const result = await Url.findOne({ shortUrl });
+    if (!result) {
+      return res.status(400).json({
+        message: "Invalid URL",
+      });
+    }
+
+    return res.json({
+      clickCount: result.analytics.length,
+      analytics: result.analytics,
+    });
+  } catch (err) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
