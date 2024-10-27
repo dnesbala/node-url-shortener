@@ -1,0 +1,44 @@
+<%- include("./partials/head", {
+    title: "URL Shortener | Home"
+}); %>
+<body>
+    <h1>URL Shortener</h1>
+
+  <form action="/url/shorten" method="POST">
+    <label for="originalUrl">Original URL:</label>
+    <br>
+    <input type="url" id="originalUrl" name="originalUrl" required>
+
+    <button type="submit" class="btn btn-outline-primary btn-sm">Shorten URL</button>
+  </form>
+
+  <hr>
+
+  <h2>Shortened URLs</h2>
+
+  <% if (urls && urls.length > 0) { %>
+    <table border="1" cellspacing="0" cellpadding="5" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Original URL</th>
+          <th>Short URL</th>
+          <th>Click Count</th>
+          <th>Creation Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% urls.forEach(url => { %>
+          <tr>
+            <td><%= url.originalUrl %></td>
+            <td><a href="/url/<%= url.shortUrl %>" target="_blank"><%= url.shortUrl %></a></td>
+            <td><%= url.analytics.length || 0 %></td>
+            <td><%= url.createdAt %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No shortened URLs available.</p>
+  <% } %>
+</body>
+</html>

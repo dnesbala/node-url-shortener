@@ -18,7 +18,8 @@ exports.createShortUrl = async (req, res) => {
         shortUrl,
       });
     }
-    return res.json(urlRecord);
+    // return res.json(urlRecord);
+    return res.redirect("/");
   } catch (err) {
     console.error("Error creating short URL:", err);
     return res.status(500).json({
