@@ -1,6 +1,6 @@
 # URL Shortener
 
-A simple Node.js application that shortens long URLs and keeps track of usage analytics, such as click count, referrer, IP address, and user agent information for each URL.
+A simple Node.js application that shortens long URLs and keeps track of usage analytics, such as click count, IP address, and user agent information for each URL.
 
 ![Screenshot](./screenshots/url_shortener_dashboard.png)
 
@@ -18,8 +18,8 @@ A simple Node.js application that shortens long URLs and keeps track of usage an
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/yourusername/url-shortener.git
-   cd url-shortener
+   git clone https://github.com/dnesbala/node-url-shortener.git
+   cd node-url-shortener
    ```
 
 2. **Install dependencies:**
@@ -32,8 +32,8 @@ A simple Node.js application that shortens long URLs and keeps track of usage an
    Create a .env file in the root directory and set the required environment variables:
 
 ```bash
-  PORT=3000
-  MONGODB_URI=your_mongodb_connection_string
+  PORT=8000
+  MONGO_DB_URL=your_mongodb_connection_string
 ```
 
 4. Run the application:
@@ -43,7 +43,7 @@ A simple Node.js application that shortens long URLs and keeps track of usage an
 ```
 
 5. Access the app:
-   Go to http://localhost:3000 in your browser.
+   Go to http://localhost:8000 in your browser.
 
 ## Usage
 
@@ -52,9 +52,9 @@ A simple Node.js application that shortens long URLs and keeps track of usage an
 
 ## Future Enhancements
 
+- **User Authentication**: Secure access for analytics and URL management.
 - **Custom Short URL**: Allows users to specify custom URLs for their shortened links.
 - **Expiration Logic**: Optionally set expiration dates for shortened URLs.
-- **User Authentication**: Secure access for analytics and URL management.
 - **Enhanced Analytics**: Include geographic data and device types.
 - **API Access**: Provide API endpoints for creating and managing shortened URLs.
 
